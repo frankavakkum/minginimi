@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id = "canvas" width="800" height="600"> </canvas>
+    <script> 
+        var tahvel = document.getElementById("canvas");
+        var ctx = tahvel.getContext ("2d");
+
+        //Joonistamise meetodid
+
+         //kustutamine
+         ctx.clearRect(0,0,tahvel.width, tahvel.height);
+
+        //täidetud ristkülik
+        ctx.fillRect(0, 0, 100, 200);
+
+        //joon
+        ctx.beginPath();
+        ctx.moveTo(200,0);
+        ctx.lineTo(200, 200);
+        ctx.lineTo(300, 200);
+        ctx.lineTo(200, 0);
+        //ctx.closePath();
+        ctx.stroke();
+        ctx.fillStyle = ("red");
+        ctx.fill();
+
+
+        //kaar
+        ctx.beginPath();
+        ctx.arc(400, 300, 100, Math.PI, 2*Math.PI, true);
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.fillStyle = "green";
+        ctx.fill();
+        
+
+        //tekst
+        ctx.font = "24px sans-serif";
+        ctx.fillStyle = "#000000";
+        ctx.fillText("Tere", 375, 380)
+
+       
+        
+
+    </script>
+</body>
+</html>
+
+

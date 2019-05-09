@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id = "canvas" width="800" height="420"> </canvas>
+    <br>
+    <input type="range" id= "ringiRaadius" min= "2" max= "200" >
+    <script> 
+        var tahvel = document.getElementById("canvas");
+        var ctx = tahvel.getContext ("2d");
+    //teeme slaideri, et saaksime palli suurust muuta
+        var ringiSlider = document.getElementById("ringiRaadius");
+        //ringiSliderile sündmuse kuulaja lisamine.NB asendasime change'i 
+        //käsu inputiga, see muutis palli suuruse muutuimise sujuvaks
+        ringiSlider.addEventListener("input", function(e) {
+            console.log(e.target.value);
+            pall.radius = parseInt(e.target.value);
+            ctx.clearRect(0, 0, tahvel.width, tahvel.height);
+            pall.draw();      
+        });
+
+
+        //Joonistamise meetodid
+
+         //kustutamine
+         ctx.clearRect(0,0,tahvel.width, tahvel.height);
+
+        var pall = {
+            x: 400,
+            y: 210,
+            radius: 30,
+            color: "red",
+            draw: function() {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
+                ctx.fill();             
+            }
+            
+        }   
+        
+        ringiSlider.value = pall.radius
+        pall.draw();
+
+        
+       
+        
+
+    </script>
+</body>
+</html>
+
+

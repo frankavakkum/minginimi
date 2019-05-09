@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+    
+<body>
+    <script>
+        //Array, massiivi deklaareerimine
+        var massiiv = new Array();
+        var masiiv2 = []; //tavaliselt kasutatakse seda varianti, kandil sulgudega saab massiivi
+
+        var nimed = ["Juku", "Kalle", "jüri"]; 
+        
+
+        //if-lause
+        if(nimed.length < 3) {
+        //lisame masiivi nimed ühe nime
+        nimed.push("Mari");
+        }
+        
+        //for-tsükkel
+        for(var i = 0; i < nimed.length; i++) {
+            console.log(i);
+            console.log(nimed[i]);
+            console.log()
+            
+
+        }
+        
+        //muudame esitähed suureks
+        for(var i = 0; i < nimed.length; i++) {
+           var nimi = nimed[i];
+           nimed[i]= nimi.charAt(0).toUpperCase() + nimi.slice(1);
+           
+
+        }
+        //object
+        var objekt = new Object();
+        var objekt2 = {};
+        var inimene = {
+            nimi: "Juku", 
+            vanus: 5,
+            tutvusta: function(){
+            var lause = "Tere, minu nimi on " + this.nimi + " ja ma olen " + this.vanus + "-aastane."
+            //console.log(lause);
+            return lause;
+            }
+        };
+
+        // Function
+        
+        var tutvusta = function(nimi, vanus) {
+            var lause = "Tere, minu nimi on " + nimi + " ja ma olen " + vanus + "-aastane."
+            //console.log(lause);
+            return lause;
+        };
+        
+        var juku_lause = tutvusta ("Juku", 9);
+            console.log(juku_lause);
+
+    </script>
+
+
+    
+</body>
+</html>
